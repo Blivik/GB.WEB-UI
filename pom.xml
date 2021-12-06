@@ -17,6 +17,24 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.3</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -25,13 +43,18 @@
     </properties>
 
     <build>
+        <pluginManagement>
 <plugins>
     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.1.2</version>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+    </plugin>
+    <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
     </plugin>
 </plugins>
+        </pluginManagement>
     </build>
 
     <reports/>
