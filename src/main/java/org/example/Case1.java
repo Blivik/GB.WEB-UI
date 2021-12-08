@@ -27,6 +27,11 @@ public class Case1 {
         WebElement Pass = driver.findElement(By.id("lj_loginwidget_password"));
         Pass.click();
         Pass.sendKeys("kA7Z2FACxr");
+        WebElement rememberMe = driver.findElement(By.xpath("//label[1]"));
+        rememberMe.click();
+        WebElement enter = driver.findElement(By.xpath("//div[2]/form/button"));
+        enter.click();
+
         driver.quit();
     }
 }
