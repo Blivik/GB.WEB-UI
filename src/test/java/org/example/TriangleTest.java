@@ -16,6 +16,11 @@ public class TriangleTest {
     Double results = Triangle.triangleArea(2,5,50);
     Assertions.assertFalse(false);
 }
+@Test
+  void validSides(){
+    boolean results = Triangle.validSides(10,10,-2);
+    Assertions.assertEquals(results,false);
+}
  }
 
 
