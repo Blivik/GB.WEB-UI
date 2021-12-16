@@ -12,4 +12,8 @@ public class Triangle {
         double s = (a + b + c) / 2.0;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
+
+    public static boolean validSides(int a, int b, int c){
+        return (a > 0 && b > 0 && c > 0);
+    }
 }
