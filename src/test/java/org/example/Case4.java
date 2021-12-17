@@ -15,7 +15,6 @@ import java.time.Duration;
 
 public class Case4 {
     static WebDriver driver;
-    private static final int Offset = 705;
 
     static Logger logger = LoggerFactory.getLogger(Case1Test.class);
 
@@ -39,7 +38,19 @@ public class Case4 {
         driver.findElement(By.id("lj_loginwidget_password")).sendKeys("kA7Z2FACxr");
         driver.findElement(By.xpath("//label[1]")).click();
         driver.findElement(By.xpath("//div[2]/form/button")).click();
-        driver.findElement(By.xpath("//*[@id=\"js\"]/body/div[2]/header/div[1]/nav[2]/ul/li[1]/div/form/button/span/svg")).click();
+        // Пробовала так:
+        //JavascriptExecutor js = (JavascriptExecutor) driver;
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+        //И так тоже:
+        //driver.findElement(By.xpath("//*[@class = 'label']")).sendKeys(Keys.CONTROL, Keys.END);
+
+        //Через Actions с помощью MoveToElement и MoveByOffset
+
+
+        driver.findElement(By.xpath("//*[@class = 'label']"));
+        driver.findElement(By.xpath("//*[@class = 'b-selectus-scroll']/ul/li[1]")).click();
+
 
 
     }
