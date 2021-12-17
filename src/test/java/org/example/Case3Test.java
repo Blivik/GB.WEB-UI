@@ -15,12 +15,11 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
-public class Case2Test {
+public class Case3Test {
 
-    private static WebDriver driver;
-    static Logger logger = LoggerFactory.getLogger(Case2Test.class);
+    static WebDriver driver;
 
-
+    static Logger logger = LoggerFactory.getLogger(Case1Test.class);
 
     @BeforeAll
     public static void setDriver() {
@@ -32,30 +31,21 @@ public class Case2Test {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://livejournal.com/");
-
     }
 
     @Test
-    void CasePublication() {
+    void CaseExit() {
         Assertions.assertDoesNotThrow(() -> driver.get("https://livejournal.com/"), "Страница недоступна");
         driver.findElement(By.xpath("//*[@id=\"js\"]/body/div[2]/header/div[1]/nav[2]/ul/li[2]/a")).click();
         driver.findElement(By.id("user")).sendKeys("VBGB");
         driver.findElement(By.id("lj_loginwidget_password")).sendKeys("kA7Z2FACxr");
         driver.findElement(By.xpath("//label[1]")).click();
         driver.findElement(By.xpath("//div[2]/form/button")).click();
-
         Actions actions = new Actions(driver);
-        actions.pause(1000).build().perform();
-
-        driver.findElement(By.xpath("//span[@class='s-header-item-post--short']"));
-
-        driver.findElement(By.xpath("//*[@class='_xt']")).sendKeys("Hello");
-        driver.findElement(By.xpath("//*[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']")).sendKeys("Hello,World");
-        driver.findElement(By.xpath("//button[@class='_11c _11e _11h _11q _11t _127']")).click();
-
+        actions.moveToElement(driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/nav[2]/ul/li[2]/a/span"))).build().perform();
+        driver.findElement(By.xpath("//a[text()='Управление записями']")).click();
+        driver.findElement(By.xpath("//*[.='Опубликованные записи']")).click();
     }
-
-
 
     @AfterEach
     void closeWindow(){
